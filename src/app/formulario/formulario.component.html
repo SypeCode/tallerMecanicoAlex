@@ -10,21 +10,51 @@
     <div class="col-md-12 row justify-content-center mt-5">
       <form class="w-100">
         <div class="form-group row justify-content-center">
-          <input type="text" name="name" id="name" class="form-control w-50" required placeholder="Nombre del Cliente"/>
+          <input type="text" [(ngModel)]="nombre" name="name" id="name" class="form-control w-50" required placeholder="Nombre del Cliente"/>
         </div>
         <div class="form-group row justify-content-center mt-2">
-            <input type="text" name="dui" id="dui" class="form-control w-50" required placeholder="DUI (Sin Guion)"/>
+            <input type="text" [(ngModel)]="dui" name="dui" id="dui" class="form-control w-50" required placeholder="DUI (Sin Guion)"/>
           </div>
           <div class="form-group row justify-content-center mt-2">
-            <input type="text" name="car" id="car" class="form-control w-50" required placeholder="Vehiculo"/>
+            <input type="text" [(ngModel)]="vehiculo" name="car" id="car" class="form-control w-50" required placeholder="Vehiculo"/>
           </div>
           <div class="form-group row justify-content-center mt-2">
-            <input type="text" name="costo" id="costo" class="form-control w-50" required placeholder="Costo de Reparacion"/>
+            <input type="text" [(ngModel)]="costo" name="costo" id="costo" class="form-control w-50" required placeholder="Costo de Reparacion"/>
+          </div>
+          <div class="form-group row justify-content-center mt-2">
+            <input type="text" [(ngModel)]="detalle" name="descripcion" id="descripcion" class="form-control w-50" required placeholder="Detalle de la reparación"/>
           </div>
           <div class="form-group row justify-content-center my-4">
-            <input type="submit" name="Enviar" id="Enviar" class="form-control btn-dark w-25">
+            <button class="button" (click)="ingresar()">Ingresar</button>
           </div>
       </form>
+      <br>
+    
+      <br>
+
+      <table >
+        <thead>
+        <tr>
+        <th>nombre</th>
+        <th>dui</th>
+        <th>vehiculo</th>
+        <th>costo</th>
+        <th>detalle</th>
+        <th>id</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of registro">
+          <td>{{cliente.nombre}}</td>
+          <td>{{cliente.dui}}</td>
+          <td>{{cliente.vehiculo}}</td>          
+          <td>{{cliente.costo}}</td>
+          <td>{{cliente.detalle}}</td>
+          <td>{{cliente.id}}</td>
+          </tr>
+          </tbody>
+          </table>
+  
     </div>
   </div>
 </section>

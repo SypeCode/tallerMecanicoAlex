@@ -1,4 +1,4 @@
-export class Cliente {
+/*export class Cliente {
   constructor(
     public nombre: string,
     public dui: string,
@@ -6,3 +6,14 @@ export class Cliente {
     public costo: number
   ) {}
 }
+
+interface cliente 
+{
+  id: number;
+  nombre: string;
+  dui: string;
+  vehiculo: string;
+  costo: number;
+  detalle: string;
+}
+*/
