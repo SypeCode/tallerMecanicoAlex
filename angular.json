@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "tallerMecanicoAlex": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tallerMecanicoAlex"
+    }
+  },
+  "defaultProject": "tallerMecanicoAlex",
+  "cli": {
+    "analytics": "a0a3c16e-a2dc-4b34-99b8-102f73383d37"
+  }
 }
