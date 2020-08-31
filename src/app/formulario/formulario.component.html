@@ -1,66 +1,144 @@
 <header>
-  <div class="header bg-dark py-4 px-3">
-    <h1 class="text-center fotn-weight-bold text-light">Taller Mecanico Don Alex</h1>
+  <div class="header bg-dark py-4">
+    <h1 class="text-center fotn-weight-bold text-light">
+      Taller Mecanico Don Alex
+    </h1>
   </div>
 </header>
 
 <section class="py-4">
   <div class="container">
-    <h3 class="text-center text-dark pb-2 border-bottom border-dark">Registro de Clientes</h3>
-    <div class="col-md-12 row justify-content-center mt-5">
+    <h3 class="text-center text-dark pb-2 border-bottom border-dark">
+      Registro de Clientes
+    </h3>
+    <div class="row justify-content-center mt-5">
       <form class="w-100">
         <div class="form-group row justify-content-center">
-          <input type="text" [(ngModel)]="nombre" name="name" id="name" class="form-control w-50" required placeholder="Nombre del Cliente"/>
+          <input
+            type="text"
+            [(ngModel)]="nombre"
+            name="name"
+            id="name"
+            class="form-control w-50"
+            required
+            placeholder="Nombre del Cliente"
+          />
         </div>
         <div class="form-group row justify-content-center mt-2">
-            <input type="text" [(ngModel)]="dui" name="dui" id="dui" class="form-control w-50" required placeholder="DUI (Sin Guion)"/>
-          </div>
-          <div class="form-group row justify-content-center mt-2">
-            <input type="text" [(ngModel)]="vehiculo" name="car" id="car" class="form-control w-50" required placeholder="Vehiculo"/>
-          </div>
-          <div class="form-group row justify-content-center mt-2">
-            <input type="text" [(ngModel)]="costo" name="costo" id="costo" class="form-control w-50" required placeholder="Costo de Reparacion"/>
-          </div>
-          <div class="form-group row justify-content-center mt-2">
-            <input type="text" [(ngModel)]="detalle" name="descripcion" id="descripcion" class="form-control w-50" required placeholder="Detalle de la reparación"/>
-          </div>
-          <div class="form-group row justify-content-center my-4">
-            <button class="button" (click)="ingresar()">Ingresar</button>
-          </div>
+          <input
+            type="text"
+            [(ngModel)]="dui"
+            name="dui"
+            id="dui"
+            class="form-control w-50"
+            required
+            placeholder="DUI"
+          />
+        </div>
+        <div class="form-group row justify-content-center mt-2">
+          <input
+            type="text"
+            [(ngModel)]="vehiculo"
+            name="car"
+            id="car"
+            class="form-control w-50"
+            required
+            placeholder="Vehiculo"
+          />
+        </div>
+        <div class="form-group row justify-content-center mt-2">
+          <input
+            type="text"
+            [(ngModel)]="costo"
+            name="costo"
+            id="costo"
+            class="form-control w-50"
+            required
+            placeholder="Costo de Reparacion"
+          />
+        </div>
+        <div class="form-group row justify-content-center mt-2">
+          <input
+            type="text"
+            [(ngModel)]="detalle"
+            name="descripcion"
+            id="descripcion"
+            class="form-control w-50"
+            required
+            placeholder="Detalle de la reparación"
+          />
+        </div>
+        <div class="form-group row justify-content-center my-4">
+          <button class="btn btn-dark form-control w-25" (click)="ingresar()">
+            Ingresar
+          </button>
+        </div>
       </form>
-      <br>
-    
-      <br>
+      <br />
 
-      <table >
-        <thead>
-        <tr>
-        <th>nombre</th>
-        <th>dui</th>
-        <th>vehiculo</th>
-        <th>costo</th>
-        <th>detalle</th>
-        <th>id</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cliente of registro">
-          <td>{{cliente.nombre}}</td>
-          <td>{{cliente.dui}}</td>
-          <td>{{cliente.vehiculo}}</td>          
-          <td>{{cliente.costo}}</td>
-          <td>{{cliente.detalle}}</td>
-          <td>{{cliente.id}}</td>
-          </tr>
-          </tbody>
-          </table>
-  
+      <br />
     </div>
   </div>
 </section>
 
+<section class="my-2">
+  <div
+    id="ticket"
+    *ngIf="registro.length >= 1"
+    class="container text-center p-3 border w-75 border-dark"
+  >
+    <h2 class="border-bottom border-dark">Ticket</h2>
+    <h6 class="my-4">Taller Mecanico Don Alex</h6>
+    <h6 class="my-4">Detalles</h6>
+    <strong>Cliente: </strong><label class="pr-2">{{ nombre }}</label>
+    <strong>DUI: </strong><label class="pl-2">{{ dui }}</label> <br />
+    <strong>Vehiculo: </strong><label class="">{{ vehiculo }}</label>
+    <br />
+    <strong>Reparacion: </strong><label class="">{{ detalle }}</label>
+    <br />
+    <strong>Precio: </strong><label class="pr-2">{{ costo }}</label>
+    <strong>Descuento: </strong><label class="pl-2">{{ descuento }}</label>
+    <br />
+    <strong>Total a pagar: </strong><label class="">{{ total }}</label> <br />
+    <label class="mt-5">San Salvador, El Salvador, {{ fecha }}</label>
+  </div>
+</section>
+
+<section class="pb-2 pt-4" id="registros" *ngIf="registro.length>=1">
+  <div class="d-flex justify-content-center">
+    <div class="table-responsive w-75">
+      <table class="table text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">DUI</th>
+            <th scope="col">Vehiculo</th>
+            <th scope="col">Detalle de Reparacion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descuento</th>
+            <th scope="col">Total</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of registro">
+            <th scope="row">{{ cliente.nombre }}</th>
+            <td>{{ cliente.dui }}</td>
+            <td>{{ cliente.vehiculo }}</td>
+            <td>{{ cliente.detalle }}</td>
+            <td>{{ cliente.costo }}</td>
+            <td>{{ cliente.descuento }}</td>
+            <td>{{ cliente.total }}</td>
+            <td>{{ cliente.fecha }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</section>
 <footer>
-  <div class="footer bg-dark p-2">
+  <div class="footer bg-dark py-2">
     <h6 class="text-center text-light">Taller Mecanico Don Alex</h6>
     <h6 class="text-center text-light">© 2020</h6>
   </div>
