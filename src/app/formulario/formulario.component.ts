@@ -25,8 +25,8 @@ export class FormularioComponent implements OnInit {
   ngOnInit() {
     this.nombre = "";
     this.dui = "";
-    this.vehiculo = 0;
-    this.costo = 0;
+    this.vehiculo;
+    this.costo ;
     this.detalle = "";
     this.contador = 0;
     this.descuento = 0;
@@ -34,6 +34,16 @@ export class FormularioComponent implements OnInit {
     this.total = 0;
     this.fecha = new Date().toLocaleDateString();
   }
+
+  limpiar(){
+    this.nombre = "";
+    this.dui = "";
+    this.vehiculo= null;
+    this.costo = null;
+    this.detalle = "";
+   
+  }
+
   ingresar() {
     this.descuento = 0;
     this.visita = 0;
@@ -67,5 +77,7 @@ export class FormularioComponent implements OnInit {
     };
     this.registro.push(this.cliente);
     this.contador++;
+
+    
   }
 }
